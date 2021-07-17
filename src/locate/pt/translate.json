@@ -1,0 +1,181 @@
+{
+  "translations": {
+    "hola": "Olá",
+    "navBar": {
+      "language": "Idioma",
+      "spanish": "Espanhol",
+      "portuguese": "Português",
+      "welcome": "Bem-vinda",
+      "getOut": "Saia"
+    },
+    "menu": {
+      "opportunities": "Oportunidades",
+      "operations": "Operações",
+      "tasks": "Tarefas",
+      "users": "Usuários",
+      "carriers": "Drivers",
+      "profile": "Perfil",
+      "home": "Começo",
+      "settings": "Configurações",
+      "reports": "Relatórios",
+      "access": "Acessos",
+      "administration": "Administração",
+      "typeService": "tipo de serviço"
+    },
+    "auth": {
+      "login": {
+        "title": "Login",
+        "email": "Mail",
+        "password": "Senha",
+        "login": "Iniciar sessão",
+        "register": "Criar nova conta"
+      },
+      "register": {
+        "title": "Registro",
+        "email": "Mail",
+        "password": "Senha",
+        "repeatPassword": "Repetir senha",
+        "create": "Criar conta"
+      }
+    },
+    "modules": {
+      "title": "Modulos",
+      "create": "Crear Modulo",
+      "show": "Detalle Modulo",
+      "name": "Nombre"
+    },
+    "operator": {
+      "title": "Opereadores",
+      "create": "Crear Operador",
+      "show": "Detalle Operador",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "documentId": "Carnet de identidad",
+      "birthDate": "Fecha de Cumpleaños",
+      "email": "Correo electrónico",
+      "companyId": "Empresa",
+      "country": "Pais",
+      "city": "Ciudad",
+      "states": "Departamento",
+      "street": "Calle",
+      "postalCode": "código postal"
+    },
+    "user": {
+      "title": "Usuários registrados",
+      "email": "Mail",
+      "phone": "Telefone",
+      "detail": "Detalhe",
+      "checkpoint": {
+        "title": "Pontos de controle",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "altitude": "Altitude",
+        "city": "Cidade",
+        "department": "Departamento",
+        "country": "País"
+      },
+      "profile": {
+        "title": "Perfil",
+        "name": "Nome",
+        "update": "Editar perfil"
+      }
+    },
+    "task": {
+      "title": "Lista de tarefas",
+      "task": "Tarefa",
+      "viewFiles": "Exibir arquivos",
+      "files": {
+        "title": "Lista de arquivos",
+        "name": "nome",
+        "path": "Link"
+      }
+    },
+    "opportunity": {
+      "title": "Lista de oportunidades",
+      "code": "Código",
+      "description": "Descrição",
+      "specialNotes": "Notas especiais",
+      "operator": "Operador",
+      "client": "Cliente",
+      "typeTransportUnit": "Tipo de transporte",
+      "weightUnit": "Unidade de peso"
+    },
+    "operation": {
+      "title": "Lista de operações",
+      "operation": "Operação",
+      "code": "Código",
+      "date": "Data",
+      "service": "Serviço",
+      "origin": "Origem",
+      "destination": "Destino",
+      "operator": "Operador",
+      "client": "Cliente",
+      "state": "State",
+      "stateTitle": "STATE",
+      "details": {
+        "title": "Detalhe da operação",
+        "subtitle": "Detalhe operação",
+        "operation": "Operação",
+        "create": "Criado em",
+        "edit": "Editar operação",
+        "liquidate": "Liquidar viagem ou motorista"
+      },
+      "states": {
+        "planned": "Planejado",
+        "active": "Ativo",
+        "toBeSettled": "A ser resolvido",
+        "liquidated": "Liquidado"
+      }
+    },
+    "company": {
+      "title": "Empresa",
+      "create": "Crear Empresa",
+      "edit": "Editar Empresa",
+      "show": "Detalle Empresa",
+      "name": "Nombre",
+      "taxId": "Nit",
+      "address": "Direccion",
+      "country": "Pais",
+      "city": "Ciudad",
+      "states": "Departamento",
+      "postalCode": "código postal"
+    },
+    "loadOrder": {
+      "title": "Carregando pedidos",
+      "subtitle": "Carregando pedido",
+      "create": "Criar pedido de carregamento",
+      "date": "Data",
+      "driver": "Driver",
+      "license": "Licença",
+      "cellNumber": "CellNumber",
+      "plate": "Placa",
+      "freight": "Frete",
+      "cost": "Custo",
+      "state": "State",
+      "details": {
+        "title": "Detalhe carregando pedido",
+        "subtitle": "Carregando detalhes do pedido",
+        "client": "CLIENTE",
+        "category": "CATEGORIA",
+        "service": "SERVIÇO",
+        "origin": "ORIGIN",
+        "destination": "DESTINO",
+        "loadDate": "LOAD DATE",
+        "typeTransport": "TIPO DE TRANSPORTE",
+        "amount": "AMOUNT",
+        "weight": "PESO",
+        "customerFreight": "CUSTOMER FREIGHT",
+        "cost": "CUSTO",
+        "profit": "LUCRO",
+        "code": "Código",
+        "create": "Criado em",
+        "for": "para",
+        "detailsDrive": "Detalhes do driver",
+        "edit": "Editar pedido de carregamento"
+      }
+    },
+    "typeService": {
+      "title": "tipo de serviço"
+    }
+  }
+}

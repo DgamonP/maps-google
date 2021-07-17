@@ -1,0 +1,252 @@
+{
+  "translations": {
+    "hola": "hola",
+    "action": "Acción",
+    "navBar": {
+      "language": "Idioma",
+      "spanish": "Español",
+      "portuguese": "Portugués",
+      "welcome": "Bienvenido",
+      "getOut": "Salir"
+    },
+    "menu": {
+      "opportunities": "Oportunidades",
+      "operations": "Operaciones",
+      "tasks": "Tareas",
+      "users": "Usuarios",
+      "carriers": "Choferes",
+      "profile": "Perfil",
+      "home": "Inicio",
+      "settings": "Configuración",
+      "reports": "Reportes",
+      "access": "Accesos",
+      "administration": "Adminsitración",
+      "module": "Módulo",
+      "operator": "Operador",
+      "typeService": "Tipo Servicio"
+    },
+    "auth": {
+      "login": {
+        "title": "Iniciar sesión",
+        "email": "Correo",
+        "password": "Contraseña",
+        "login": "Iniciar sesión",
+        "register": "Crear nueva cuenta",
+        "loginClient": "Entrar como cliente",
+        "changePassword": "Cambiar contraseña",
+        "newPassword": "Nueva contraseña",
+        "repeatNewPassword": "repetir nueva contraseña"
+      },
+      "register": {
+        "title": "Registro",
+        "email": "Correo",
+        "password": "Contraseña",
+        "repeatPassword": "Repetir contraseña",
+        "create": "Crear cuenta"
+      }
+    },
+    "user": {
+      "title": "Usuarios registrados",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "detail": "Detalle",
+      "checkpoint": {
+        "title": "Puntos de control",
+        "latitude": "Latitud",
+        "longitude": "Longitud",
+        "altitude": "Altitud",
+        "city": "Ciudad",
+        "department": "Departamento",
+        "country": "Pais"
+      },
+      "profile": {
+        "title": "Perfil",
+        "name": "Nombre",
+        "update": "Editar perfil"
+      }
+    },
+    "task": {
+      "title": "Tareas",
+      "task": "Tarea",
+      "list": "Lista de tareas",
+      "name": "Nombre",
+      "viewFiles": "Ver archivos",
+      "files": {
+        "title": "Lista de archivos",
+        "name": "Nombre",
+        "path": "Enlace"
+      }
+    },
+    "opportunity": {
+      "title": "Lista de oportunidades",
+      "code": "Código",
+      "description": "Descripción",
+      "specialNotes": "Notas especiales",
+      "operator": "Operador",
+      "client": "Cliente",
+      "typeTransportUnit": "Tipo de transporte",
+      "weightUnit": "Unidad de peso"
+    },
+    "operation": {
+      "title": "Operaciones actuales",
+      "operation": "Operación",
+      "code": "Código",
+      "date": "Fecha",
+      "service": "Servicio",
+      "origin": "Origen",
+      "destination": "Destino",
+      "operator": "Operador",
+      "client": "Cliente",
+      "state": "Estado",
+      "stateTitle": "ESTADO",
+      "details": {
+        "title": "Detalle de operación",
+        "subtitle": "Detalle de operación",
+        "operation": "Operación",
+        "create": "Creada el",
+        "edit": "Editar operación",
+        "liquidate": "Liquidar viaje o conductor"
+      },
+      "states": {
+        "planned": "Planificada",
+        "active": "Activa",
+        "toBeSettled": "Por liquidar",
+        "liquidated": "Liquidada"
+      },
+      "create": {
+        "title": "Crear Operación",
+        "createcliente": "Crear nuevo cliente"
+      }
+    },
+    "loadOrder": {
+      "title": "Ordenes de carga",
+      "subtitle": "Orden de carga",
+      "create": "Crear orden de carga",
+      "date": "Fecha",
+      "driver": "Conductor",
+      "license": "Licencia",
+      "cellNumber": "Nro Celular",
+      "plate": "Placa",
+      "freight": "Flete",
+      "cost": "Costo",
+      "state": "Estado",
+      "details": {
+        "title": "Detalle de orden de carga",
+        "subtitle": "Detalle orden de carga",
+        "client": "CLIENTE",
+        "category": "CATEGORÍA",
+        "service": "SERVICIO",
+        "origin": "ORIGEN",
+        "destination": "DESTINO",
+        "loadDate": "FECHA DE CARGA",
+        "typeTransport": "TIPO DE TRANSPORTE",
+        "amount": "CANTIDAD",
+        "weight": "PESO",
+        "customerFreight": "FLETE CLIENTE",
+        "cost": "COSTO",
+        "profit": "UTILIDAD",
+        "code": "Código",
+        "create": "Creada el",
+        "for": "por",
+        "detailsDrive": "Detalle de conductor",
+        "edit": "Editar orden de carga"
+      }
+    },
+    "opportunities": {
+      "title": "Oportunidades",
+      "create": "Crear Oportunidad",
+      "show": "Detalle Oportunidad",
+      "date": "Fecha",
+      "code": "Código",
+      "state": "Estado",
+      "client": "Cliente",
+      "category": "Categoría",
+      "service": "Servicio",
+      "origin": "Origen",
+      "destination": "Destino",
+      "postulant": "Postulantes",
+      "details": {
+        "title": "Detalle de Oportunidad",
+        "subtitle": "Detalle Oportunidad",
+        "subtitleloads": "Detalle de carga",
+        "client": "CLIENTE",
+        "category": "CATEGORÍA",
+        "service": "SERVICIO",
+        "origin": "ORIGEN",
+        "destination": "DESTINO",
+        "date": "FECHA DE CARGUÍO",
+        "weight": "PESO"
+      }
+    },
+    "modules": {
+      "title": "Modulos",
+      "create": "Crear Modulo",
+      "show": "Detalle Modulo",
+      "name": "Nombre"
+    },
+    "operator": {
+      "title": "Operadores",
+      "create": "Crear Operador",
+      "show": "Detalle Operador",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "documentId": "Carnet de identidad",
+      "birthDate": "Fecha de Cumpleaños",
+      "email": "Correo electrónico",
+      "companyId": "Empresa",
+      "country": "Pais",
+      "city": "Ciudad",
+      "states": "Departamento",
+      "street": "Calle",
+      "postalCode": "código postal"
+    },
+    "client": {
+      "title": "Clientes",
+      "create": "Crear Cliente",
+      "show": "Detalle Cliente",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "documentId": "Carnet de identidad",
+      "birthDate": "Fecha de Cumpleaños",
+      "email": "Correo electrónico",
+      "companyId": "Empresa",
+      "country": "Pais",
+      "city": "Ciudad",
+      "states": "Departamento",
+      "street": "Calle",
+      "postalCode": "código postal"
+    },
+    "company": {
+      "title": "Empresa",
+      "create": "Crear Empresa",
+      "edit": "Editar Empresa",
+      "show": "Detalle Empresa",
+      "name": "Nombre",
+      "taxId": "Nit",
+      "address": "Dirección",
+      "country": "País",
+      "city": "Ciudad",
+      "states": "Departamento",
+      "postalCode": "código postal"
+    },
+    "cognito": {
+      "Incorrect username or password.": "Correo o contraseña incorrecta.",
+      "User does not exist.": "El usuario no existe.",
+      "Network error":"Error de red, no se puede comunicar con el servidor"
+    },
+    "profile": {
+      "title": "Mi perfil",
+      "firstName": "Nombres",
+      "lastName": "Apellidos",
+      "documentId": "ID documento",
+      "taxId": "Impuesto",
+      "company": "Compañia",
+      "birthDate": "Fecha de nacimiento",
+      "timeZone": "Zona horaria",
+      "edit": "Editar perfil"
+    },
+    "typeService": {
+      "title": "Tipo de Servicio"
+    }
+  }
+}
