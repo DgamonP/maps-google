@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Grid, MenuItem, TextField } from '@material-ui/core';
 import { Field } from 'redux-form';
 
-import C_MAP from '../../../components/map/map';
 import { Montserrat } from '../../../theme/fontFamily';
 import { C_BUTTON, C_FIELD, C_TYPOGRAPHY } from '../../../components';
-import { InfoWindow, Marker } from 'google-maps-react';
 
-// Components
-import DropdownInput from './Dropdowninput';
+
+
+
+import SimpleTabs from './TabsView';
+
 
 // const columns = () => [
 //   { title: 'CI', id: 'ci' },
@@ -16,8 +17,6 @@ import DropdownInput from './Dropdowninput';
 //   { title: 'Placa', id: 'plate' },
 //   { title: '', id: 'selected' },
 // ];
-
-
 
 export const LoadOrderCreateFields = (props) => {
   const [plate, setPlate] = useState('');
@@ -50,56 +49,12 @@ export const LoadOrderCreateFields = (props) => {
     search(plate);
   };
 
-  console.log("address from geofencing :", address)
-
-  const [showingInfoWindow, setShowingInfoWindow] = React.useState(false);
-  const [activeMarker, setActiveMarker] = React.useState(null);
   const [citiesOrigin, setCitiesOrigin] = useState([]);
   const [citiesDestination, setCitiesDestination] = useState([]);
 
   const currencyFreightType = measurementUnits.filter((item) => item.type === 'Moneda');
   const volumeUnitType = measurementUnits.filter((item) => item.type === 'Volumen');
   const weightUnitType = measurementUnits.filter((item) => item.type === 'Peso');
-
-  // Search term from DropdownInput
-  const [ searchTermText, setSearchTermText ] = useState('')
-
-  // List of locations from API
-  const [ locations , setLocations ] = React.useState([]);
-
-
-  // Control initial render for search do not triger
-  const initial = React.useRef(true);
-
-
-  React.useEffect(() => {
-    if (initial.current) {
-        initial.current = false;
-        return;
-    }
-
-    geoCoding(searchTermText, true);
-
-  }, [geoCoding, searchTermText]);
-
-
-  React.useEffect(() => {
-    if (initial.current) {
-        initial.current = false;
-        return;
-    }
-   
-    const timer = setTimeout(() => {
-      // Set the locations to be the results of the dropdown
-      setSearchTermText(  () => (
-        address.city + ', ' + address.state + ', ' + address.country
-      ))}
-
-    , 500)
-    return () => clearTimeout(timer)
-
-  }, [address]);
-  
 
 
   return (
@@ -330,58 +285,17 @@ export const LoadOrderCreateFields = (props) => {
       </Grid>
 
       <Field name={'markers'} value={markers} style={{ display: 'none' }} component={'input'} />
-      <Grid container direction={'row'}>
-        <Grid item sm={6} xs={12}>
-
-          {/* MAP Component */}
-
-          <C_MAP markers={markers}>
-            {markers.map((item, key) => {
-              if (item)
-                return (
-                  <Marker
-                    position={{ lat: item.lat, lng: item.lng }}
-                    title={'position_' + key}
-                    name={'position_' + key}
-                    key={key}
-                    draggable
-                    onDragend={(event, map, clickEvent) => {
-
-                      
-                      item.lat = clickEvent.latLng.lat();
-                      item.lng = clickEvent.latLng.lng();
-                      geoFensing(item.lat, item.lng, true);
-                      //setMakers(markers);
-                    }}
-                    onClick={(props, marker, e) => {
-                      setShowingInfoWindow(true);
-                      setActiveMarker(marker);
-                    }}
-                    icon={{
-                      url: icons[key],
-                      scale: 10,
-                    }}
-                  ></Marker>
-                );
-              return null;
-            })}
-            <InfoWindow marker={activeMarker} visible={showingInfoWindow}>
-              <div>
-                <span style={{ padding: 0, margin: 0 }}>{' Position agregado'}</span>
-              </div>
-            </InfoWindow>
-          </C_MAP>
-
-
-        </Grid>
-      </Grid>
-
-      {/* DROPDOWN INPUT */}
-      <DropdownInput 
-        setSearchTermText = {setSearchTermText}
-        locations = {fullGeoResults}
-        searchTermText= {searchTermText}
-      />
+      
+      {/* TABS VIEW */}
+            
+      <SimpleTabs 
+        markers={markers}
+        geoFencing={geoFensing}
+        icons={icons} 
+        fullGeoResults={fullGeoResults}
+        geoCoding={geoCoding}
+        address={address}
+        />
 
       {withCarrierAssign && (
         <div>
@@ -440,3 +354,5 @@ export const LoadOrderCreateFields = (props) => {
     </>
   );
 };
+
+
