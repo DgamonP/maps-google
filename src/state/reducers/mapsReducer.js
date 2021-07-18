@@ -20,6 +20,7 @@ export const mapsReducer = (state = initialState, action) => {
         loading: false,
         markers: [action.result.origen ? action.result.data.results[0].geometry.location : state.markers[0],
         !action.result.origen ? action.result.data.results[0].geometry.location : state.markers[1]],
+        fullGeoResults: action.result.data.results,
       };
     case mapsConstants.GEOCODING_FAILURE:
       return {

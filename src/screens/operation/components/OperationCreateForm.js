@@ -154,6 +154,7 @@ const OperationCreateForm = (props) => {
                 Detalle de la oportunidad
               </C_TYPOGRAPHY>
             </Grid>
+            {/* Create Fields */}
             <LoadOrderCreateFields
               measurementUnits={measurementUnits}
               categories={categories}

@@ -1,13 +1,16 @@
 import { mapsConstants } from '../constants';
 import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyAE8QygNNc0lhFs5oY0KtIJZoR17LDSJWM");
-Geocode.setRegion("es");
+Geocode.setRegion("bo");
+Geocode.setLocationType("ROOFTOP");
 
 const geocoding = (literal, origen) => {
+
   return (dispatch) => {
     dispatch(request());
     Geocode.fromAddress(literal).then(
       ( response ) => {
+        console.log("eocode.fromAddress", response)
         const result = { 'data': response, 'origen': origen}
         dispatch(success(result));
       },

@@ -7,12 +7,17 @@ import { Montserrat } from '../../../theme/fontFamily';
 import { C_BUTTON, C_FIELD, C_TYPOGRAPHY } from '../../../components';
 import { InfoWindow, Marker } from 'google-maps-react';
 
+// Components
+import DropdownInput from './Dropdowninput';
+
 // const columns = () => [
 //   { title: 'CI', id: 'ci' },
 //   { title: 'Nombre', id: 'name' },
 //   { title: 'Placa', id: 'plate' },
 //   { title: '', id: 'selected' },
 // ];
+
+
 
 export const LoadOrderCreateFields = (props) => {
   const [plate, setPlate] = useState('');
@@ -35,6 +40,7 @@ export const LoadOrderCreateFields = (props) => {
     icons,
     geoCoding,
     markers,
+
   } = props;
 
   const searchCarrier = () => {
@@ -51,8 +57,22 @@ export const LoadOrderCreateFields = (props) => {
   const volumeUnitType = measurementUnits.filter((item) => item.type === 'Volumen');
   const weightUnitType = measurementUnits.filter((item) => item.type === 'Peso');
 
+  // Search term from DropdownInput
+  const [ searchTermText, setSearchTermText ] = useState('')
+
+
+  React.useEffect(() => {
+
+    console.log("useEffect...", searchTermText)
+    const response = geoCoding(searchTermText, true);
+    console.log("response: ", response);
+
+  }, [geoCoding, searchTermText]);
+
   return (
     <>
+      {/* Detalle de la oportunidad */}
+
       <Grid container direction={'row'} spacing={2}>
         <Grid item xs={12} sm={3}>
           <C_FIELD name={`${extraName}dates.loadingDate`} label='Fecha de carga' date={true} />
@@ -180,6 +200,8 @@ export const LoadOrderCreateFields = (props) => {
         />
       </Grid>
 
+      {/* Detalle de geolocalización */}
+
       <Grid item xs={12} style={{ marginTop: 15 }}>
         <C_TYPOGRAPHY variant={'h4'} fontFamily={Montserrat.Bold} fontSize={15}>
           {'Detalle de geolocalización'}
@@ -193,6 +215,8 @@ export const LoadOrderCreateFields = (props) => {
         </C_TYPOGRAPHY>
       </Grid>
 
+
+
       <Grid container direction={'row'} spacing={2}>
         <Grid item xs={12} sm={3}>
           <C_FIELD
@@ -200,6 +224,7 @@ export const LoadOrderCreateFields = (props) => {
             label={'Origen'}
             select
             contentSelect={places.map((item) => {
+
               return item.states.map((data, index) => {
                 data.PlaceId = item._id;
                 const itemValue = data.name + ', ' + item.countryName;
@@ -207,8 +232,8 @@ export const LoadOrderCreateFields = (props) => {
                   <MenuItem
                     key={index}
                     value={data}
-                    onClick={(event) => {
-                      setCitiesOrigin(data.cities);
+                    onClick={  (event) => {
+                      setCitiesOrigin(data.cities); // data.cities does not exists in the data, so we need to set it manually
                       geoCoding(event.target.outerText, true);
                     }}
                   >
@@ -274,6 +299,9 @@ export const LoadOrderCreateFields = (props) => {
       <Field name={'markers'} value={markers} style={{ display: 'none' }} component={'input'} />
       <Grid container direction={'row'}>
         <Grid item sm={6} xs={12}>
+
+          {/* MAP Component */}
+
           <C_MAP markers={markers}>
             {markers.map((item, key) => {
               if (item)
@@ -306,8 +334,14 @@ export const LoadOrderCreateFields = (props) => {
               </div>
             </InfoWindow>
           </C_MAP>
+
+
         </Grid>
       </Grid>
+
+      {/* DROPDOWN INPUT */}
+
+      <DropdownInput setSearchTermText = {setSearchTermText} />
 
       {withCarrierAssign && (
         <div>
