@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Grid } from '@material-ui/core';
+import { Grid, Text } from '@material-ui/core';
 
 import { InfoWindow, Marker } from 'google-maps-react';
 
@@ -10,54 +10,19 @@ import C_MAP from '../../../components/map/map';
 // Components
 import DropdownInput from './Dropdowninput';
 
-// Hooks
 
-import useMarker from '../hooks/useMarker';
-
-
-const defaultParams = [
-    {
-        key: 0,
-        lat: '17.7749295',
-        lng: '-122.4194155'    
-    },
-    {
-        key: 1,
-        lat: '37.7749295',
-        lng: '-132.4194155'
-    }
-]
 const MapsNew = ({ markers, geoFencing, icons, address, geoCoding, fullGeoResults }) => {
+
+    const [showingInfoWindow, setShowingInfoWindow] = React.useState(false);
+    const [activeMarker, setActiveMarker] = React.useState(null);
 
 
     // Search term from DropdownInput
     const [searchTermText, setSearchTermText] = useState('')
 
+    // List of locations from API
+    const [locations, setLocations] = React.useState([]);
 
-    const [ MarkerComponentA,
-        setactiveMarkerA,
-        activeMarkerA,
-        showingInfoWindowA ] = useMarker(
-            {
-                geoFencing,
-                icons,
-                key:defaultParams[0].key,
-                lat:defaultParams[0].lat,
-                lng:defaultParams[0].lng
-            }
-        )
-
-
-    const [ MarkerComponentB,
-        setactiveMarkerB,
-        activeMarkerB,
-        showingInfoWindowB ] = useMarker({
-            geoFencing,
-            icons,
-            key:defaultParams[1].key,
-            lat:defaultParams[1].lat,
-            lng:defaultParams[1].lng
-        })
 
     // Control initial render for search do not triger
     const initial = React.useRef(true);
@@ -99,11 +64,44 @@ const MapsNew = ({ markers, geoFencing, icons, address, geoCoding, fullGeoResult
 
                 {/* MAP Component */}
 
-                <C_MAP markers={activeMarkerA}>
+                <C_MAP markers={markers}>
+                    {markers.map((item, key) => {
+                        if (item) {
+                            return (
+                                <Marker
+                                    position={{ lat: item.lat, lng: item.lng }}
+                                    title={'position_' + key}
+                                    name={'position_' + key}
+                                    key={key}
+                                    draggable
+                                    onDragEnd={(event, map, clickEvent) => console.log(clickEvent)}
+                                    onDragend={(event, map, clickEvent) => {
 
-                    <MarkerComponentA/>
-                    <MarkerComponentB/>
+                                        item.lat = clickEvent.latLng.lat();
+                                        item.lng = clickEvent.latLng.lng();
+                                        //setMakers(markers);
+                                        console.log("ACTIVE MARKER", item)
+                                        geoFencing(item.lat, item.lng, true);
+                                    }}
+                                    onClick={(props, marker, e) => {
+                                        setShowingInfoWindow(true);
+                                        setActiveMarker(marker);
+                                    }}
+                                    icon={{
+                                        url: icons[key],
+                                        scale: 10,
+                                    }}
+                                ></Marker>
+                            );
+                        }
 
+                        return null;
+                    })}
+                    <InfoWindow marker={activeMarker} visible={showingInfoWindow}>
+                        <div>
+                            <span style={{ padding: 0, margin: 0 }}>{' Position agregado'}</span>
+                        </div>
+                    </InfoWindow>
                 </C_MAP>
 
 
