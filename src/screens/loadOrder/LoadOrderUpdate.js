@@ -36,11 +36,9 @@ const LoadOrderUpdate = (props) => {
     boardingModesList,
     basicTypeTransportUnitsList,
     placesList,
-    markers,
-    fullResults
+    markers
   } = props;
 
-  console.log("fullResults", fullResults);
   useEffect(() => {
     measurementUnitsList();
     categoriesList();

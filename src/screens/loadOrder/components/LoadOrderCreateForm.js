@@ -90,7 +90,6 @@ const LoadOrderCreateForm = (props) => {
     icons,
     geoCoding,
   } = props;
-
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: 10 }}>
       <Grid container direction={'column'}>
@@ -129,6 +128,7 @@ const mapStateToProps = (state) => {
   const { places } = state.place;
   const { transportUnits } = state.transportUnit;
   const { markers, icons } = state.maps;
+  
   return {
     initialValues: data,
     measurementUnits,
@@ -138,7 +138,7 @@ const mapStateToProps = (state) => {
     places,
     transportUnits,
     markers,
-    icons,
+    icons
   };
 };
 

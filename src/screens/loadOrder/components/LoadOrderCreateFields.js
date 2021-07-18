@@ -40,13 +40,17 @@ export const LoadOrderCreateFields = (props) => {
     icons,
     geoCoding,
     markers,
-
+    fullGeoResults,
+    geoFensing,
+    address
   } = props;
 
   const searchCarrier = () => {
     // console.log(plate);verificar placa si esta vacio
     search(plate);
   };
+
+  console.log("address from geofencing :", address)
 
   const [showingInfoWindow, setShowingInfoWindow] = React.useState(false);
   const [activeMarker, setActiveMarker] = React.useState(null);
@@ -60,14 +64,43 @@ export const LoadOrderCreateFields = (props) => {
   // Search term from DropdownInput
   const [ searchTermText, setSearchTermText ] = useState('')
 
+  // List of locations from API
+  const [ locations , setLocations ] = React.useState([]);
+
+
+  // Control initial render for search do not triger
+  const initial = React.useRef(true);
+
 
   React.useEffect(() => {
+    if (initial.current) {
+        initial.current = false;
+        return;
+    }
 
-    console.log("useEffect...", searchTermText)
-    const response = geoCoding(searchTermText, true);
-    console.log("response: ", response);
+    geoCoding(searchTermText, true);
 
   }, [geoCoding, searchTermText]);
+
+
+  React.useEffect(() => {
+    if (initial.current) {
+        initial.current = false;
+        return;
+    }
+   
+    const timer = setTimeout(() => {
+      // Set the locations to be the results of the dropdown
+      setSearchTermText(  () => (
+        address.city + ', ' + address.state + ', ' + address.country
+      ))}
+
+    , 500)
+    return () => clearTimeout(timer)
+
+  }, [address]);
+  
+
 
   return (
     <>
@@ -313,8 +346,11 @@ export const LoadOrderCreateFields = (props) => {
                     key={key}
                     draggable
                     onDragend={(event, map, clickEvent) => {
+
+                      
                       item.lat = clickEvent.latLng.lat();
                       item.lng = clickEvent.latLng.lng();
+                      geoFensing(item.lat, item.lng, true);
                       //setMakers(markers);
                     }}
                     onClick={(props, marker, e) => {
@@ -327,6 +363,7 @@ export const LoadOrderCreateFields = (props) => {
                     }}
                   ></Marker>
                 );
+              return null;
             })}
             <InfoWindow marker={activeMarker} visible={showingInfoWindow}>
               <div>
@@ -340,8 +377,11 @@ export const LoadOrderCreateFields = (props) => {
       </Grid>
 
       {/* DROPDOWN INPUT */}
-
-      <DropdownInput setSearchTermText = {setSearchTermText} />
+      <DropdownInput 
+        setSearchTermText = {setSearchTermText}
+        locations = {fullGeoResults}
+        searchTermText= {searchTermText}
+      />
 
       {withCarrierAssign && (
         <div>

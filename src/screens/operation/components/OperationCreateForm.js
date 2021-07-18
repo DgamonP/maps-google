@@ -9,6 +9,7 @@ import { Montserrat } from '../../../theme/fontFamily';
 import { LoadOrderCreateFields } from '../../loadOrder/components/LoadOrderCreateFields';
 import { mapsAction } from '../../../state/actions';
 
+// 
 const validate = (values) => {
   const errors = {
     travel: {
@@ -113,6 +114,9 @@ const OperationCreateForm = (props) => {
     search,
     icons,
     geoCoding,
+    fullGeoResults,
+    geoFensing,
+    address
   } = props;
   const placesEdited = JSON.parse(JSON.stringify(places).split('"countryName":').join('"name":'));
 
@@ -169,6 +173,9 @@ const OperationCreateForm = (props) => {
               search={search}
               icons={icons}
               geoCoding={geoCoding}
+              fullGeoResults={fullGeoResults}
+              geoFensing={geoFensing}
+              address={address}
             />
           </div>
         )}
@@ -214,6 +221,7 @@ const mapStateToProps = (state) => {
 const actionCreators = {
   search: transportUnit.transportUnitSearch,
   geoCoding: mapsAction.geocoding,
+  geoFensing: mapsAction.geofencing,
 };
 
 export default connect(

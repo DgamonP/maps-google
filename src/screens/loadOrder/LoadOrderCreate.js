@@ -44,9 +44,8 @@ const LoadOrderCreate = (props) => {
     basicTypeTransportUnitsList,
     placesList,
     loadingOrderCreateDirect,
-    markers,
+    markers
   } = props;
-
   useEffect(() => {
     measurementUnitsList();
     categoriesList();

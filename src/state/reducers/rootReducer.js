@@ -31,6 +31,8 @@ import { typeServiceReducer } from './typeServiceReducer';
 import { featureReducer } from './featureReducer';
 import { typeTransportUnitReducer } from './typeTransportUnitReducer';
 import { mapsReducer } from './mapsReducer';
+import { mapsGeoFencingReducer } from './mapsGeoFencingReducer';
+
 import { routesReducer } from './routesReducer';
 
 import { authConstants } from '../constants';
@@ -66,6 +68,7 @@ const appReducer = combineReducers({
   typeService: typeServiceReducer,
   typeTransportUnit: typeTransportUnitReducer,
   maps: mapsReducer,
+  mapsGeoFencing: mapsGeoFencingReducer,
   routes: routesReducer,
   form: reduxFormReducer, // mounted under "form"
 });

@@ -46,6 +46,8 @@ const OperationCreate = (props) => {
     basicTypeTransportUnitsList,
     success,
     markers,
+    fullGeoResults,
+    address,
   } = props;
 
   useEffect(() => {
@@ -146,6 +148,8 @@ const OperationCreate = (props) => {
             markers={markers}
             withOneTravel={withOneTravel}
             withCarrierAssign={withCarrierAssign}
+            fullGeoResults={fullGeoResults}
+            address={address}
           />
         </Grid>
       </Paper>
@@ -156,9 +160,11 @@ const OperationCreate = (props) => {
 const mapStateToProps = (state) => {
   const { userId, profile } = state.auth;
   const { loadingAction, res, success } = state.operation;
-  const { markers } = state.maps;
+  const { markers, fullGeoResults } = state.maps;
+  const { address } = state.mapsGeoFencing;
+
   // const { loadingActionLO: loadingAction } = state.loadOrder;
-  return { userId, profile, loadingAction, res, success, markers };
+  return { userId, profile, loadingAction, res, success, markers, fullGeoResults, address };
 };
 
 const actionCreators = {
